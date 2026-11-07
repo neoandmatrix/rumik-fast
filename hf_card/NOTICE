@@ -1,0 +1,74 @@
+rumik-oss 1
+Copyright 2026 Rumik AI
+
+This model is a derivative work. CC-BY-NC 4.0 requires that redistribution
+indicate what was changed relative to the upstream material; this file records
+those changes.
+
+-----------------------------------------------------------------------
+Lineage:
+
+  CohereLabs/tiny-aya-fire        vocab 261,008
+    https://huggingface.co/CohereLabs/tiny-aya-fire
+    Licensed CC-BY-NC 4.0 with the Cohere Labs acceptable-use addendum.
+
+  -> rumik-ai/rumik-oss-1-base    vocab 277,395
+    https://huggingface.co/rumik-ai/rumik-oss-1-base
+    Named-speaker text-to-speech training.
+
+  -> rumik-ai/rumik-oss-1         vocab 277,404   (this model)
+    Delivery-control fine-tuning and reinforcement learning.
+-----------------------------------------------------------------------
+
+Modifications made by Rumik AI, relative to tiny aya fire:
+
+  1. Vocabulary extended from 261,008 to 277,404 tokens:
+       - 16,384 Mimi codec unit tokens <code>_<quantizer>, ids 261008-277391
+       - 3 structure delimiters <text>, <audio>, </audio>, ids 277392-277394
+       - 9 delivery and vocalization tags, ids 277395-277403
+     The first two groups were added for rumik-oss 1 base; the tags were
+     added for rumik-oss 1. Input and output embedding matrices were
+     resized accordingly.
+
+  2. A stop-prediction head (`stop_predictor`) was added on top of the final
+     hidden state to terminate audio generation.
+
+  3. The model was post-trained for text-to-speech on multilingual Indic and
+     English speech data, followed by a reinforcement-learning stage.
+
+  4. Model class and configuration were reimplemented as RumikOSSForCausalLM /
+     RumikOSSConfig (model_type "rumik_oss"), subclassing the transformers
+     Cohere2 implementation.
+
+  5. The inherited chat template was removed. This is not a chat model and
+     does not take a `messages` list; it uses the flat prompt layout
+     documented in README.md.
+
+-----------------------------------------------------------------------
+Also bundled:
+
+Mimi codec (codec/) - Kyutai
+  https://huggingface.co/kyutai/mimi
+  Licensed CC-BY-4.0. Redistributed unmodified.
+-----------------------------------------------------------------------
+
+=======================================================================
+rumik-oss-1-int4 (this repository): further modifications, 2026-11-06
+-----------------------------------------------------------------------
+Derived from rumik-ai/rumik-oss-1 (above) by post-training quantization only;
+no training or fine-tuning, and the vocabulary and architecture are unchanged.
+
+  1. All attention and MLP projection weights of the 36 decoder layers
+     (q, k, v, o, gate, up, down) quantized to 4-bit integers: groups of
+     128 input columns, min/max round-to-nearest, w = code * scale + min,
+     two codes per byte (low nibble = even column), fp16 scale and min
+     per group. Mean relative weight error 10.5% (see export.json).
+  2. Input embedding table quantized to int8 with one fp16 scale per row
+     (relative error 1.0%).
+  3. Output head: only the 16,385 audio rows (Mimi codes + </audio>) are
+     kept, in bf16, with their token ids (head.audio_ids); the text rows are
+     dropped, because the model only emits audio tokens after <audio>.
+  4. Layer norms and the stop predictor are unchanged (copied as-is).
+  5. The Mimi codec, tokenizer and config are not included here; use the
+     original repository (rumik-ai/rumik-oss-1).
+=======================================================================

@@ -1,0 +1,23 @@
+{
+ "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+ "tuned_in": "full decode step (tune_step.py)",
+ "step_ms": 13.25,
+ "25088x2048": {
+  "BLOCK_N": 32,
+  "BLOCK_K": 256,
+  "num_warps": 2,
+  "num_stages": 2
+ },
+ "2048x2048": {
+  "BLOCK_N": 16,
+  "BLOCK_K": 512,
+  "num_warps": 2,
+  "num_stages": 2
+ },
+ "2048x11008": {
+  "BLOCK_N": 32,
+  "BLOCK_K": 512,
+  "num_warps": 4,
+  "num_stages": 2
+ }
+}

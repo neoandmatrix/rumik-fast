@@ -1,0 +1,105 @@
+{
+ "gpu": "NVIDIA GeForce RTX 3050 Laptop GPU",
+ "peak_gb_s": 176,
+ "shapes": {
+  "qkv": {
+   "N": 3072,
+   "K": 2048,
+   "rel_err_vs_fp32": 0.00169,
+   "triton_int4_us": 32.2,
+   "triton_int4_gb_s": 104.1,
+   "w32_rel_err": 0.00169,
+   "triton_w32_us": 75.4,
+   "triton_w32_gb_s": 44.4,
+   "cublas_bf16_us": 84.6,
+   "cublas_bf16_gb_s": 148.7,
+   "tinygemm_us": 29.0,
+   "tinygemm_gb_s": 115.4
+  },
+  "o": {
+   "N": 2048,
+   "K": 2048,
+   "rel_err_vs_fp32": 0.00165,
+   "triton_int4_us": 22.7,
+   "triton_int4_gb_s": 98.5,
+   "w32_rel_err": 0.00165,
+   "triton_w32_us": 52.8,
+   "triton_w32_gb_s": 42.4,
+   "cublas_bf16_us": 59.8,
+   "cublas_bf16_gb_s": 140.2,
+   "tinygemm_us": 21.1,
+   "tinygemm_gb_s": 106.0
+  },
+  "gate_up": {
+   "N": 22016,
+   "K": 2048,
+   "rel_err_vs_fp32": 0.00167,
+   "triton_int4_us": 159.5,
+   "triton_int4_gb_s": 150.5,
+   "w32_rel_err": 0.00167,
+   "triton_w32_us": 476.1,
+   "triton_w32_gb_s": 50.4,
+   "cublas_bf16_us": 537.8,
+   "cublas_bf16_gb_s": 167.7,
+   "tinygemm_us": 152.4,
+   "tinygemm_gb_s": 157.5
+  },
+  "down": {
+   "N": 2048,
+   "K": 11008,
+   "rel_err_vs_fp32": 0.00168,
+   "triton_int4_us": 94.8,
+   "triton_int4_gb_s": 126.6,
+   "w32_rel_err": 0.00168,
+   "triton_w32_us": 260.1,
+   "triton_w32_gb_s": 46.1,
+   "cublas_bf16_us": 287.7,
+   "cublas_bf16_gb_s": 156.7,
+   "tinygemm_us": 82.7,
+   "tinygemm_gb_s": 145.2
+  },
+  "audio_head": {
+   "N": 16385,
+   "K": 2048,
+   "rel_err_vs_fp32": 0.00167,
+   "triton_int4_us": 122.1,
+   "triton_int4_gb_s": 146.3,
+   "w32_rel_err": 0.00167,
+   "triton_w32_us": 364.2,
+   "triton_w32_gb_s": 49.1,
+   "cublas_bf16_us": 403.9,
+   "cublas_bf16_gb_s": 166.2,
+   "tinygemm": "unavailable: RuntimeError: Expected qScaleAndZeros.size(1) == n to be true, but got false.  (Could this error message be improved?  If so, please r"
+  },
+  "qkv_gate_up": {
+   "N": 25088,
+   "K": 2048,
+   "rel_err_vs_fp32": 0.00167,
+   "triton_int4_us": 180.4,
+   "triton_int4_gb_s": 151.6,
+   "w32_rel_err": 0.00167,
+   "triton_w32_us": 539.9,
+   "triton_w32_gb_s": 50.7,
+   "cublas_bf16_us": 611.0,
+   "cublas_bf16_gb_s": 168.2,
+   "tinygemm_us": 172.6,
+   "tinygemm_gb_s": 158.4
+  }
+ },
+ "full_step_v1": {
+  "ms": 13.95,
+  "gb": 1.564,
+  "gb_s": 112.1,
+  "tok_s_ceiling": 71.7,
+  "pct_of_peak": 63.7,
+  "vram_gib": 2.26
+ },
+ "full_step_w32": {
+  "ms": 33.71,
+  "gb": 1.564,
+  "gb_s": 46.4,
+  "tok_s_ceiling": 29.7,
+  "pct_of_peak": 26.4,
+  "vram_gib": 2.26
+ }
+}

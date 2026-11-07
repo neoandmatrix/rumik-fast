@@ -1,0 +1,18 @@
+{
+ "cpu_float32_6t": {
+  "one_frame_ms": 67.3,
+  "per_frame_in_batch_of_100_ms": 4.45
+ },
+ "cpu_float32_12t": {
+  "one_frame_ms": 47.9,
+  "per_frame_in_batch_of_100_ms": 5.04
+ },
+ "cuda_float32": {
+  "one_frame_ms": 6.4,
+  "per_frame_in_batch_of_100_ms": 0.34
+ },
+ "cuda_float16": {
+  "one_frame_ms": 6.6,
+  "per_frame_in_batch_of_100_ms": 0.18
+ }
+}

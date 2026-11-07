@@ -1,0 +1,11 @@
+# weights (download_weights.py) and generated output
+weights/
+engine/out/
+ui/out/
+*.wav
+*.nsys-rep
+*.sqlite
+*.qdrep
+__pycache__/
+*.pyc
+.venv/
