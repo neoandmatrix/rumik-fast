@@ -1,5 +1,5 @@
 """Count the GPU instructions (SASS) Triton generates for the int4 GEMV kernels, to see the work per weight.
-  ../../04-gemma-stt-hindi/.venv/bin/python sass_count.py
+  uv run python sass_count.py
 """
 import collections
 import re

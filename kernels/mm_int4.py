@@ -10,7 +10,7 @@ group (128 columns) at a time:
     acc   += d * scale[n] + rowsum(X_tile)[m] * min[n]       (the group's affine, applied to the result)
 so the per-weight work is just the unpack, and the multiply-adds run on the tensor cores.
 
-  ../../04-gemma-stt-hindi/.venv/bin/python mm_int4.py      -> correctness + timing vs the old dequant path
+  uv run python mm_int4.py      -> correctness + timing vs the old dequant path
 """
 import torch
 import triton

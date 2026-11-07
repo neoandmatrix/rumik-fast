@@ -1,6 +1,6 @@
 """Streaming Mimi vs a full decode of the same codes: SNR of the streamed audio, and time per call.
 Uses an 18 s clip (longer than the transformer's 250-step window) and chunks of 1 frame, then 3 frames.
-  ../../04-gemma-stt-hindi/.venv/bin/python check_stream.py
+  uv run python check_stream.py
 """
 import time
 

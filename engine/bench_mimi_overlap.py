@@ -1,6 +1,6 @@
 """How much does streaming Mimi slow the language model? Same line, same seed, decode tok/s with:
 no Mimi | Mimi every 1/2/4 frames | Mimi in fp16. Also the SNR of fp16 Mimi vs fp32.
-  ../../04-gemma-stt-hindi/.venv/bin/python bench_mimi_overlap.py
+  uv run python bench_mimi_overlap.py
 """
 import torch
 from transformers import AutoTokenizer, MimiModel

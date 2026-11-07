@@ -1,7 +1,7 @@
 """How fast can this GPU *read* a Rumik weight matrix with our tiling, if we do almost no maths?
 read_only: same loads as the int4 GEMV (q bytes + scales + mins), integer-sums them. Compared with the real kernel
 (v4) and cuBLAS bf16 (reads 4x more bytes, so its GB/s is the hardware's practical ceiling for this kind of read).
-  ../../04-gemma-stt-hindi/.venv/bin/python roofline.py
+  uv run python roofline.py
 """
 import sys
 import time

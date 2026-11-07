@@ -1,6 +1,6 @@
 """v1 (pinned config) vs v4 (magic conversion, + split-K) per Rumik shape: 36 different matrices in one CUDA graph,
 best of 2 rounds per config. Checks v4's result against v1 first.
-  ../../04-gemma-stt-hindi/.venv/bin/python bench_v4.py
+  uv run python bench_v4.py
 """
 import sys
 import time

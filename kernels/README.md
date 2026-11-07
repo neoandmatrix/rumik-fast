@@ -1,9 +1,9 @@
 # int4 GEMV kernels for Rumik decode on the RTX 3050 Laptop (4 GB, 176 GB/s)
 
-These benchmarks use random weights of Rumik's exact shapes, so no download is needed. They run in `04-gemma-stt-hindi/.venv`, which has torch 2.14.1+cu130 and Triton 3.8, so no new installs either.
+These benchmarks use random weights of Rumik's exact shapes, so no download is needed. Run them with `uv run python <script>` (torch 2.14.1 with CUDA 13 and Triton 3.8, pinned in `../uv.lock`).
 
 ```
-cd 06-rumik-fast/kernels && ../../04-gemma-stt-hindi/.venv/bin/python bench_gemv.py   # ~3 min, writes results_3050.json
+cd 06-rumik-fast/kernels && uv run python bench_gemv.py   # ~3 min, writes results_3050.json
 ```
 
 ## Files

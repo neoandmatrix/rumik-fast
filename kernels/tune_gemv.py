@@ -3,7 +3,7 @@ Why: @triton.autotune re-times every config in each new process with a quick ben
 move around, it sometimes locks in a worse config, so the same engine ran at 13.0 or 14.6 ms/step from run to run.
 Here each config is timed the way the engine uses it: 36 different weight matrices (no cache reuse) in a CUDA graph,
 over two full sweeps, keeping the best time per config across sweeps.
-  ../../04-gemma-stt-hindi/.venv/bin/python tune_gemv.py        (~2 min, run in performance mode)
+  uv run python tune_gemv.py        (~2 min, run in performance mode)
 """
 import json
 import sys

@@ -1,6 +1,6 @@
 """Is the engine's maths right? Compare one Cohere2 decoder layer and the prefill logits against the reference
 implementation (transformers' Cohere2 code) running on the same dequantized int4 weights.
-  ../../04-gemma-stt-hindi/.venv/bin/python check.py
+  uv run python check.py
 """
 import torch
 from transformers import Cohere2Config

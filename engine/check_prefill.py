@@ -1,6 +1,6 @@
 """int4 prefill (step 8) vs the old dequantize-to-bf16 prefill: same prompt, compare the KV cache it writes, the
 final hidden state, the sampling distribution of the first audio token, and the time.
-  ../../04-gemma-stt-hindi/.venv/bin/python check_prefill.py
+  uv run python check_prefill.py
 """
 import time
 

@@ -2,7 +2,7 @@
 with the CUDA GEMV from the same state, and compare the sampling distributions (softmax(logits / 0.8) over the
 top-30): KL divergence, and how often the most likely token agrees. A sampled token can differ on a near-tie even
 when the distributions match, so this is the fair test.
-  ../../04-gemma-stt-hindi/.venv/bin/python check_dist.py
+  uv run python check_dist.py
 """
 import torch
 from transformers import AutoTokenizer

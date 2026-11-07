@@ -1,6 +1,6 @@
 """How fast is Rumik's Mimi decoder (8 codebooks, 12.5 Hz, 24 kHz) on this laptop's CPU vs its GPU?
 Real time needs one 80 ms frame decoded in < 80 ms; streaming decodes one frame at a time.
-  ../../04-gemma-stt-hindi/.venv/bin/python bench_mimi.py
+  uv run python bench_mimi.py
 """
 import inspect
 import json

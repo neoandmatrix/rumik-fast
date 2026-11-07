@@ -1,5 +1,5 @@
 """Profile the real decode step (max_seq 512, pos 300; ENGINE=old|fused) under nsys, per kernel:
-  nsys profile --cuda-graph-trace=node -o out/step -f true ../../04-gemma-stt-hindi/.venv/bin/python prof_engine.py
+  nsys profile --cuda-graph-trace=node -o out/step -f true uv run python prof_engine.py
   nsys stats -r cuda_gpu_kern_sum --filter-nvtx=steps out/step.nsys-rep   (only the timed steps)
 Without nsys it just prints ms/step (run in performance mode)."""
 import os

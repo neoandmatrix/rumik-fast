@@ -20,16 +20,19 @@ Needs an NVIDIA GPU with compute capability 8.0+ (RTX 30xx/40xx/50xx, A10, L4, A
 the CUDA toolkit (`nvcc`) for the CUDA kernels, and Linux. Everything was tested only on an RTX 3050 Laptop.
 
 ```bash
-pip install torch            # the build for your CUDA, see pytorch.org
-pip install -r requirements.txt
-python download_weights.py   # ~2.55 GB into ./weights (int4 file + Rumik's tokenizer/config/codec)
+uv sync --extra live         # the exact tested versions from uv.lock (torch 2.14.1 CUDA 13, transformers 5.21.0, ...)
+uv run python download_weights.py   # ~2.55 GB into ./weights (int4 file + Rumik's tokenizer/config/codec)
 
 cd engine
-python say.py                # 4 test lines -> out/*.wav, prints tok/s and timings
-python say.py --hard         # 4 long lines (numbers, code-switching, emotion tags)
-python speak.py              # live streaming to your speakers; type a line, hear it
-cd ../ui && python server.py # web UI at http://127.0.0.1:8765
+uv run python say.py         # 4 test lines -> out/*.wav, prints tok/s and timings
+uv run python say.py --hard  # 4 long lines (numbers, code-switching, emotion tags)
+uv run python speak.py       # live streaming to your speakers; type a line, hear it
+cd ../ui && uv run python server.py   # web UI at http://127.0.0.1:8765
 ```
+
+Dependencies are in `pyproject.toml`, and `uv.lock` pins the versions that ran on the RTX 3050. Leave out
+`--extra live` if you don't need `speak.py` (it needs PortAudio). `--extra modal` adds the cloud scripts. If your CUDA
+driver is too old for the CUDA 13 build of torch, change the torch pin in `pyproject.toml` and run `uv lock` again.
 
 The first run compiles the CUDA kernels (about 1 minute; cached in `~/.cache/torch_extensions`) and the Triton kernels.
 

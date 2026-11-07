@@ -2,9 +2,9 @@
 
 ```
 cd 06-rumik-fast/engine
-../../04-gemma-stt-hindi/.venv/bin/python check.py      # maths vs the reference Cohere2 code (~1 min)
-../../04-gemma-stt-hindi/.venv/bin/python say.py        # 4 test lines -> out/*.wav + speed
-../../04-gemma-stt-hindi/.venv/bin/python say.py "नमस्ते, कैसे हैं आप?"
+uv run python check.py      # maths vs the reference Cohere2 code (~1 min)
+uv run python say.py        # 4 test lines -> out/*.wav + speed
+uv run python say.py "नमस्ते, कैसे हैं आप?"
 ```
 It needs `../weights/` (see STORAGE.md). The code is written from the model's published code, not copied from Ashwin's unlicensed repo.
 

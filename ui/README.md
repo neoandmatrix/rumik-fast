@@ -3,7 +3,7 @@
 Type a line, pick a voice, tone, accent and pace, insert `<laugh>` `<chuckle>` `<sigh>` at the cursor, and hear it
 stream from the laptop GPU (our int4 engine, ~97 tok/s) while it is being generated.
 
-    cd 06-rumik-fast/ui && ../../04-gemma-stt-hindi/.venv/bin/python server.py
+    cd 06-rumik-fast/ui && uv run python server.py
     # open http://127.0.0.1:8765   (listens on this laptop only; Ctrl-C to stop)
 
 - `server.py`: standard library only (http.server). It loads RumikFused + Mimi once and serves `index.html`.

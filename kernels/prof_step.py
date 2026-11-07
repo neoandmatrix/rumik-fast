@@ -1,7 +1,7 @@
 """Where do the ~3 ms between "sum of per-shape kernel times" and "full step" go? One decode step's projections
 (random int4 weights, Rumik shapes) as a CUDA graph, run under nsys with per-node tracing:
 
-  nsys profile --cuda-graph-trace=node -o step -f true ../../04-gemma-stt-hindi/.venv/bin/python prof_step.py
+  nsys profile --cuda-graph-trace=node -o step -f true uv run python prof_step.py
   nsys stats -r cuda_gpu_kern_sum step.nsys-rep
 Also prints the step time with the GPU clocks reported before/after (laptop GPUs drop clocks under load).
 """

@@ -1,6 +1,6 @@
 """Fused step vs the original step, from the same state (same prompt, same cache, same random seed):
 compares the final hidden state, the K/V written into the cache, and the sampled token, over a few steps.
-  ../../04-gemma-stt-hindi/.venv/bin/python check_fused.py
+  uv run python check_fused.py
 """
 import torch
 from transformers import AutoTokenizer

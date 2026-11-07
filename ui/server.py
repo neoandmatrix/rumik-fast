@@ -1,7 +1,7 @@
 """Local web UI for our Rumik engine: type a line, pick a voice / tone / accent / pace, add <laugh> <chuckle> <sigh>,
 and hear it stream from the laptop GPU while it is generated.
 
-  cd 06-rumik-fast/ui && ../../04-gemma-stt-hindi/.venv/bin/python server.py      -> open http://127.0.0.1:8765
+  cd 06-rumik-fast/ui && uv run python server.py      -> open http://127.0.0.1:8765
 
 Standard library only (http.server). Listens on 127.0.0.1 only. One generation at a time (one GPU).
 POST /speak streams a chunked binary response of frames: 1 type byte + 4-byte little-endian length + payload.

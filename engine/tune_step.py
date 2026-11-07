@@ -1,6 +1,6 @@
 """Tune the GEMV configs inside the real decode step (not in isolation: the winners differ), and save them to
 ../kernels/gemv_configs.json. One shape at a time (coordinate descent), each candidate timed in the full CUDA graph.
-  ../../04-gemma-stt-hindi/.venv/bin/python tune_step.py     (~3 min, performance mode)
+  uv run python tune_step.py     (~3 min, performance mode)
 """
 import json
 import time

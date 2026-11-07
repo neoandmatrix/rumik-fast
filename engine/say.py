@@ -1,7 +1,7 @@
 """Text -> speech on the laptop with our int4 engine; prints speed, writes wavs to out/.
-  ../../04-gemma-stt-hindi/.venv/bin/python say.py                       # the built-in test lines
-  ../../04-gemma-stt-hindi/.venv/bin/python say.py --hard                # 4 harder lines (long, numbers, switching, emotion)
-  ../../04-gemma-stt-hindi/.venv/bin/python say.py "नमस्ते, कैसे हैं आप?"   # your own line
+  uv run python say.py                       # the built-in test lines
+  uv run python say.py --hard                # 4 harder lines (long, numbers, switching, emotion)
+  uv run python say.py "नमस्ते, कैसे हैं आप?"   # your own line
 Mimi decodes the whole clip at the end here (not streamed yet).
 """
 import json

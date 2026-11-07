@@ -3,7 +3,7 @@
   full step: the 36 layers x 4 projections in int4 + the bf16 audio head, in one CUDA graph -> a tokens/s ceiling
              (attention, norms, sampling and Mimi not included)
 
-  ../../04-gemma-stt-hindi/.venv/bin/python bench_gemv.py      -> prints a table, writes results_<gpu>.json
+  uv run python bench_gemv.py      -> prints a table, writes results_<gpu>.json
 """
 import json
 import sys

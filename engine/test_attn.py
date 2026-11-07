@@ -1,6 +1,6 @@
 """Decode attention kernels vs plain fp32 attention, on a random KV cache at several positions; plus the time
 per call (one layer). attn = one program per query head; attn_split + attn_combine = flash-decoding.
-  ../../04-gemma-stt-hindi/.venv/bin/python test_attn.py
+  uv run python test_attn.py
 """
 import torch
 import triton.testing as tt

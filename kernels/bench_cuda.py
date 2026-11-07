@@ -1,5 +1,5 @@
 """CUDA int4 GEMV vs Triton v1: error vs fp32 and GB/s per Rumik shape (36 matrices in one CUDA graph).
-  ../../04-gemma-stt-hindi/.venv/bin/python bench_cuda.py
+  uv run python bench_cuda.py
 """
 import sys
 import time

@@ -1,8 +1,8 @@
 """Live streaming TTS on the laptop: text in, audio out of the speakers while it is being generated.
 
-  ../../04-gemma-stt-hindi/.venv/bin/python speak.py                  # interactive: type a line, hear it
-  ../../04-gemma-stt-hindi/.venv/bin/python speak.py "Namaste ji"     # one line
-  ../../04-gemma-stt-hindi/.venv/bin/python speak.py --set test        # the 4 test lines (--set hard: the 4 long ones)
+  uv run python speak.py                  # interactive: type a line, hear it
+  uv run python speak.py "Namaste ji"     # one line
+  uv run python speak.py --set test        # the 4 test lines (--set hard: the 4 long ones)
   options: --speaker Ira --desc "calm, Hindi accent, steady pace" --prebuffer MS (default: adaptive) --chunk 1
 
 Pipeline: engine.generate(on_frame=...) hands over every 80 ms frame (8 tokens) as soon as it is sampled ->

@@ -3,7 +3,7 @@
    distribution; with bf16 logits, ties at equal values are common and the two sorts may order them differently),
    the same stop decision, and, when the top-30 has no ties, the same token for the same uniform random numbers.
 2. int8 audio head (CUDA kernel) vs bf16 head along a real generation: KL of the sampling distributions, top-1 agreement.
-  ../../04-gemma-stt-hindi/.venv/bin/python check_sample.py
+  uv run python check_sample.py
 """
 import torch
 from transformers import AutoTokenizer
